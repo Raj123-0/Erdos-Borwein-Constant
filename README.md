@@ -1,21 +1,51 @@
+# Erdos Borwein Constant
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![CI](https://github.com/Raj123-0/Erdos-Borwein-Constant/actions/workflows/ci.yml/badge.svg)](https://github.com/Raj123-0/Erdos-Borwein-Constant/actions)
 
-===============================================================================
-PROJECT: Erdos-Borwein Constant Computation Engine
-===============================================================================
 
-OVERVIEW:
-Calculates the Erdos-Borwein constant (E ≈ 1.60669515241529176378...) to arbitrary 
-precision (N digits). Erdős proved that E is irrational.
+High-precision mathematical computation and OEIS digit generator for Erdos Borwein Constant.
 
-ALGORITHM & MATHEMATICS:
-- Mersenne Reciprocal Sum / Lambert Series:
-    E = sum_{n=1}^{infinity} 1 / (2^n - 1) = sum_{k=1}^{infinity} d(k) / 2^k
-- High-precision binary bit-shift updates using gmpy2 and mpmath context guards.
+## Overview
+
+`Erdos-Borwein-Constant` implements high-precision evaluation of the **Erdos Borwein Constant** using arbitrary-precision mathematical routines (`mpmath` and C-accelerated `gmpy2`). The engine generates exact decimal digits, formats standard OEIS b-file sequences, and includes an automated performance benchmark.
+
+## Features
+
+- **Arbitrary-Precision Calculation**: Configurable digit targets with optimized guard precision.
+- **OEIS b-file Output**: Generates 1-based index sequence files ready for OEIS submission.
+- **Performance Profiling**: Built-in benchmark suite to evaluate digits/sec scaling.
+- **Robust CLI**: Easy command-line interface with argument parsing.
+
+## Installation
+
+```bash
+git clone https://github.com/Raj123-0/Erdos-Borwein-Constant.git
+cd Erdos-Borwein-Constant
+pip install -r requirements.txt
+```
 
 ## Usage
 
+Calculate digits with the CLI:
+
 ```bash
-python "Erdos-Borwein Constant.py" --help
+python "Erdos-Borwein Constant.py" --digits 1000
 ```
+
+Run precision benchmarks:
+
+```bash
+python benchmarks/bench_precision.py
+```
+
+Run automated tests:
+
+```bash
+pytest tests/
+```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
